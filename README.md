@@ -24,3 +24,23 @@
 * set up python virtual environment: `source .venv/bin/activate` (you should see (.venv) as the first item on your line to show you are in a virtual environment)
 * pip may not be updated in your virtual environment as you have it set up globally so upgrade pip in your environment: `python3 -m pip install --upgrade pip`
 * install the requirements laid out in the 'requirements.txt' file in your directory: `pip install -r requirements.txt` (you can see their installation under the lib folder in your directory)
+
+## Synthesize your CDK Code
+The `cdk synth` command in the AWS Cloud Development Kit (CDK) generates an AWS CloudFormation template from your CDK application code. It translates the high-level constructs, configurations, and logic defined in your CDK code into the JSON or YAML format that CloudFormation uses to provision and manage AWS resources.
+
+**Steps:**
+* enter python virtual environment in your directory: `source .venv/bin/activate` 
+* type this command: 'cdk synth STACK_NAME' (ex: `cdk synth my-first-cdk-app`, keep in mind in you can enter multiple stack names in this one command). When no stack name is provided it synthesizes all stacks in your app.
+    * the stack name for this example was found in is app.py on the root level directory of 'my_first_cdk_app folder'. **ALL STACK NAMES THAT YOU PLAN TO DEPLOY MUST BE DEFINED IN THIS FILE OR ELSE THEY WILL NOT GET DEPLOYED**
+    * The actual python code creating the resources is found under the 'my_first_cd_app' folder in 'my_first_cd_app.py'
+* After this command, a new folder called 'cdk.out' will be created which will have the cloudformation templates and other files.
+
+## Deploy Your Code
+**Using the command 'cdk deploy' does the job of both synthesizing your python code into cloudformation templates and deploying them into AWS.** Think of 'cdk synth' as similar to 'terraform plan' (plans but does not create resources), whereas 'cdk deploy' is similar to terraform apply (both plans AND creates resources).
+
+Steps:
+* Go to project folder
+* Initialize python virtual environment: `source .venv/bin/activate`
+* Deploy cloudformation stacks: `cdk deploy STACKNAME` (you can define multiple stack names), to deploy all defined stacks use, `cdk deploy --all`
+* Type 'y' when prompted to approve deployment
+* Check cloudformation in aws console to see the created stack (look at resources section of your stack to see the AWS resources it created).
