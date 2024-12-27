@@ -13,7 +13,7 @@
         * this bootstraps your specified account in us-east-1, you can add on more accounts/regions in linear fashion to this command to bootstrap multiple environments at once, just make sure you have configured your aws cli locally before running this command.
     * Once the bootrap has been completed, go to your aws console and loock at stacks in cloudformation to see your newly created CDKToolkit (name is subject to change). Now you can use CDK in this aws environment.
 
-## How to Initialize A CDK Folder
+## How to Initialize a CDK Folder
 * CDK allows you to quickly set up your cdk resources by using the `cdk init` command (typing this command alone will show you a list of options). This helps you to quickly create templates for a CDK application and constructs. For example in the 'my_first_cdk_app' folder we set that folder up using the command `cdk init sample-app --language python`. This command creates all the necessary files and folders in this directory to create a CDK application with some constructs.
 
 * Install requirements for python virtual environment after initialization 
