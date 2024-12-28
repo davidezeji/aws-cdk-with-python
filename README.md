@@ -46,7 +46,7 @@ Steps:
 * Check cloudformation in aws console to see the created stack (look at resources section of your stack to see the AWS resources it created).
 
 ## Destroy Your CDK Stack
-**IMPORTANT**: Make sure to never destroy your 'CDKToolkit clouformation stack as it allows cdktoolkit to interact with your aws environment.
+**IMPORTANT**: Make sure to never destroy your 'CDKToolkit' clouformation stack as it allows cdktoolkit to interact with your aws environment.
 
 Steps:
 * Go to project folder 
