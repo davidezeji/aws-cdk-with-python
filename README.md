@@ -90,7 +90,7 @@ This cdk app creates a VPC with two AZ's, 2 public/private subnets, internet gat
 * Before you define a construct, find the aws-cdk-lib module and import it (note how 'aws_ec2 as ec2' is imported in the sample repository, in order to create VPC's and other resources).
 * To specifically find L1 constructs in the library, select the correct resource name on the left side of the screen, scroll down on the left side until you find the 'CloudFormation Resources' section. Note how all the resources start with 'Cfn', showing how they relate to L1 constructs.
 * When you've clicked the link of the resource you want to create, click the appropriate link for the programming language you plan to create the construct with.
-* Define your constructs under 'def __init__' with proper indentation.
+* Define your constructs under `'def __init__'` with proper indentation.
 * Once you've created your constructs, Initialize python virtual environment: `source .venv/bin/activate`
 * Synthesize your code: `cdk synth STACKNAME` (look for errors and check 'cdk.out' folder for generated cloudformation templates)
     * **Note:** In your virtual environment, you might need to run `pip install aws-cdk-lib constructs` to recognize the packages installed.
@@ -105,12 +105,45 @@ This cdk app creates a VPC with two AZ's, 2 public/private subnets, internet gat
 ```
 **Steps:**
 * Go to the correct project directory (this was initialized using the steps above)
-* Go to your constructs file which is usually found under the sub-folder that contains your stack name and the file should be your stack name ending in .py (in this repository it is **aws-cdk-with-python/my_sample_app/my_sample_app/my_sample_app_stack.py**).
+* Go to your constructs file which is usually found under the sub-folder that contains your stack name and the file should be your stack name ending in .py (in this repository it is **aws-cdk-with-python/my_sample_app/my_sample_app/my_sample_app_l2_stack.py**).
 * Before you define a construct, find the aws-cdk-lib module and import it (note how 'aws_ec2 as ec2' is imported in the sample repository, in order to create VPC's and other resources).
 * When you've clicked the link of the resource you want to create, click the appropriate link for the programming language you plan to create the construct with.
-* Define your constructs under 'def __init__' with proper indentation.
+* Define your constructs under `'def __init__'` with proper indentation.
 * Once you've created your constructs, Initialize python virtual environment: `source .venv/bin/activate`
 * Synthesize your code: `cdk synth STACKNAME` (look for errors and check 'cdk.out' folder for generated cloudformation templates)
     * **Note:** In your virtual environment, you might need to run `pip install aws-cdk-lib constructs` to recognize the packages installed.
 
 ### How to Create L3 Constructs
+```
+Example L1 constructs can be found in the 'my_sample_app_l1'folder.
+
+This cdk app creates a VPC with two AZ's, 2 public/private subnets, internet gateway and route tables (nat gateways were not created as they are not covered by AWS' free tier limit).
+```
+**Steps:**
+* Go to the correct project directory (this was initialized using the steps above)
+* Go to your constructs file which is usually found under the sub-folder that contains your stack name and the file should be your stack name ending in .py (in this repository it is **aws-cdk-with-python/my_sample_app/my_sample_app/my_sample_app_stack.py**).
+* Before you define a construct, find the aws-cdk-lib module and import it (note how 'aws_ec2 as ec2' is imported in the sample repository, in order to create VPC's and other resources).
+* To specifically find L1 constructs in the library, select the correct resource name on the left side of the screen, scroll down on the left side until you find the 'CloudFormation Resources' section. Note how all the resources start with 'Cfn', showing how they relate to L1 constructs.
+* When you've clicked the link of the resource you want to create, click the appropriate link for the programming language you plan to create the construct with.
+* Define your constructs under `'def __init__'` with proper indentation.
+* Once you've created your constructs, Initialize python virtual environment: `source .venv/bin/activate`
+* Synthesize your code: `cdk synth STACKNAME` (look for errors and check 'cdk.out' folder for generated cloudformation templates)
+    * **Note:** In your virtual environment, you might need to run `pip install aws-cdk-lib constructs` to recognize the packages installed.
+
+
+### How to Create L2 Constructs
+
+```
+Example L3 constructs can be found in the 'my_sample_app_l3'folder. 
+
+This cdk app creates a VPC with two AZ's, 2 public/private subnets, internet gateway and route tables (nat gateways were not created as they are not covered by AWS' free tier limit).
+```
+**Steps:**
+* Go to the correct project directory (this was initialized using the steps above)
+* Go to your constructs file which is usually found under the sub-folder that contains your stack name and the file should be your stack name ending in .py (in this repository it is **aws-cdk-with-python/my_sample_app/my_sample_app/my_sample_app_l3_stack.py**).
+* Before you define a construct, find the aws-cdk-lib module and import it (note how 'aws_ec2 as ec2' is imported in the sample repository, in order to create VPC's and other resources).
+* When you've clicked the link of the resource you want to create, click the appropriate link for the programming language you plan to create the construct with.
+* Define your constructs under `'def __init__'` with proper indentation.
+* Once you've created your constructs, Initialize python virtual environment: `source .venv/bin/activate`
+* Synthesize your code: `cdk synth STACKNAME` (look for errors and check 'cdk.out' folder for generated cloudformation templates)
+    * **Note:** In your virtual environment, you might need to run `pip install aws-cdk-lib constructs` to recognize the packages installed.
