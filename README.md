@@ -44,3 +44,47 @@ Steps:
 * Deploy cloudformation stacks: `cdk deploy STACKNAME` (you can define multiple stack names), to deploy all defined stacks use, `cdk deploy --all`
 * Type 'y' when prompted to approve deployment
 * Check cloudformation in aws console to see the created stack (look at resources section of your stack to see the AWS resources it created).
+
+## Destroy Your CDK Stack
+**IMPORTANT**: Make sure to never destroy your 'CDKToolkit clouformation stack as it allows cdktoolkit to interact with your aws environment.
+
+Steps:
+* Go to project folder 
+* Initialize python virtual environment: `source .venv/bin/activate`
+* Run cdk destroy command: `cdk destroy STACKNAME` (ex: 'cdk destroy MyFirstCdkAppStack') or just use `cdk destroy` to destroy all stacks in your directory.
+* Type 'y' to proceed with deletion.
+* Go to aws to ensure all resources/stacks have been destroyed.
+
+## Creating CDK Constructs
+[AWS CDK Construct Library](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-construct-library.html)
+
+**What are CDK Constructs?**
+
+* CDK constructs are the basic building blocks of CDK applications. A construct refers to one or more AWS resources that are configured as a single component.
+* There are three levels of constructs from lowest to highest level of encapsulation: L1, L2 and L3.
+* Documentation for CDK constructs can found in the CDK constructs library (see above).
+
+**What are L1 constructs?**
+* These are the lowest level cdk contructs, mapping aws cloudformation resource types and properties one-to-one.
+* Their names start with *'Cfn'* in the Construct library
+* You can switch from CloudFormation's JSON or YAML templates to CDK code using only L1 constructs.
+
+**What are L2 constructs?**
+**What are L3 constructs?**
+
+### How to Create L1 Constructs
+```
+Example L1 constructs can be found in the 'my_first_cdk_app'folder.
+
+This cdk app creates a VPC with two AZ's, 2 public/private subnets, internet gateway and route tables (nat gateways were not created as they are not covered by AWS' free tier limit).
+```
+**Steps:**
+* Go to the correct project directory
+* Go to your constructs file which is usually found under the sub-folder that contains your stack name and the file should be your stack name ending in .py (in this repository it is **aws-cdk-with-python/my_sample_app/my_sample_app/my_sample_app_stack.py**).
+* Before you define a construct, find the aws-cdk-lib module and import it (note how 'aws_ec2 as ec2' is imported in the sample repository, in order to create VPC's and other resources).
+* To specifically find L1 constructs in the library, scroll down on the left side until you find the 'CloudFormation Resources' section. Note how all the resources start with 'Cfn', showing how they relate to L1 constructs.
+* When you've clicked the link of the resource you want to create, click the appropriate link for the programming language you plan to create the construct with.
+* Define your constructs under 'def __init__' with proper indentation.
+
+### How to Create L2 Constructs
+### How to Create L3 Constructs
