@@ -101,7 +101,9 @@ This cdk app creates a VPC with two AZ's, 2 public/private subnets, internet gat
 ```
 Example L2 constructs can be found in the 'my_sample_app_l2'folder. 
 
-This cdk app creates a VPC with two AZ's, 2 public/private subnets, internet gateway and route tables (nat gateways were not created as they are not covered by AWS' free tier limit).
+my_sample_app_l2_stack.py: This cdk app creates a VPC with two AZ's, 2 public/private subnets, internet gateway and route tables (nat gateways were not created as they are not covered by AWS' free tier limit).
+
+serverless_app_l2_stack.py: This cdk app creates a dynamodb table that includes a  with a lambda function which scans all items in the table and returns them as a list (this specfic lambda function can be found in 'product_list_function.py'), and can be accessed via a lambda url (once you click the url it invokes the lambda function which retrieves the contents of the dynamodb table as a list).
 ```
 **Steps:**
 * Go to the correct project directory (this was initialized using the steps above)
@@ -129,3 +131,8 @@ This cdk app creates a VPC with two AZ's, 2 public/private subnets, internet gat
 * Once you've created your constructs, Initialize python virtual environment: `source .venv/bin/activate`
 * Synthesize your code: `cdk synth STACKNAME` (look for errors and check 'cdk.out' folder for generated cloudformation templates)
     * **Note:** In your virtual environment, you might need to run `pip install aws-cdk-lib constructs` to recognize the packages installed.
+
+## CDK Outputs
+* Take a look a the 'serverless_app_l2_stack.py' file for an example of how to configure outputs. The point of doing this is to see outputs when you create a cloudformation console (ex: in this example, seeing the url of the lambda function that get's created).
+    * notice how outputs are created using L1 constructs as seen by its naming 'CfnOutput' in the 'serverless_app_l2_stack.py' file. 
+    * you can look at the 'outputs' tab of your cloudformation stack in aws to see generated outputs.
