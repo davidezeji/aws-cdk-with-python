@@ -99,7 +99,7 @@ This cdk app creates a VPC with two AZ's, 2 public/private subnets, internet gat
 ### How to Create L2 Constructs
 
 ```
-Example L2 constructs can be found in the 'my_sample_app_l2'folder. 
+Example L2 constructs can be found in the 'my_sample_app_l2' and 'serverless_app_l2' folders. 
 
 my_sample_app_l2_stack.py: This cdk app creates a VPC with two AZ's, 2 public/private subnets, internet gateway and route tables (nat gateways were not created as they are not covered by AWS' free tier limit).
 
