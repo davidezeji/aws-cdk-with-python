@@ -103,7 +103,7 @@ Example L2 constructs can be found in the 'my_sample_app_l2' and 'serverless_app
 
 my_sample_app_l2_stack.py: This cdk app creates a VPC with two AZ's, 2 public/private subnets, internet gateway and route tables (nat gateways were not created as they are not covered by AWS' free tier limit).
 
-serverless_app_l2_stack.py: This cdk app creates a dynamodb table that includes a  with a lambda function which scans all items in the table and returns them as a list (this specfic lambda function can be found in 'product_list_function.py'), and can be accessed via a lambda url (once you click the url it invokes the lambda function which retrieves the contents of the dynamodb table as a list).
+serverless_app_l2_stack.py & product_list_function.py: This cdk app creates a dynamodb table that includes a  with a lambda function which scans all items in the table and returns them as a list (this specfic lambda function can be found in 'product_list_function.py'), and can be accessed via a lambda url (once you click the url it invokes the lambda function which retrieves the contents of the dynamodb table as a list).
 ```
 **Steps:**
 * Go to the correct project directory (this was initialized using the steps above)
