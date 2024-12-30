@@ -56,7 +56,14 @@ Steps:
 * Go to aws to ensure all resources/stacks have been destroyed.
 
 ## Creating CDK Constructs
-[AWS CDK Construct Library](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-construct-library.html)
+**Find L1 & L2 Constructs here:**
+
+* [AWS CDK Construct Library](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-construct-library.html)
+
+**Find L3 constructs here:**
+* [AWS Solutions Constructs](https://docs.aws.amazon.com/solutions/latest/constructs/welcome.html) (on the left hand side click on the 'API Reference' dropdown)
+* [Construct Hub](https://constructs.dev/) (search for the constructs you're interested in and make sure to filter results on the left hand side of your search results)
+
 
 **What are CDK Constructs?**
 
@@ -77,6 +84,12 @@ Steps:
 * *Using L2 constructs is recommended whenever possible, due to their ease of use.*
 
 **What are L3 constructs?**
+* These are also known as 'cdk patterns'
+* These are the highest-level constructs, composed of resources from multiple services to create a complete solution (think of a module containing multiple services/resources)
+* They include a mixture of L1 and L2 constructs.
+* Not included in the CDK construct library but are imported as separate libraries in your programming language (imported at the top of your files, look at examples in the documentaion pages above).
+
+
 
 ### How to Create L1 Constructs
 ```
@@ -136,3 +149,8 @@ This cdk app creates a VPC with two AZ's, 2 public/private subnets, internet gat
 * Take a look a the 'serverless_app_l2_stack.py' file for an example of how to configure outputs. The point of doing this is to see outputs when you create a cloudformation console (ex: in this example, seeing the url of the lambda function that get's created).
     * notice how outputs are created using L1 constructs as seen by its naming 'CfnOutput' in the 'serverless_app_l2_stack.py' file. 
     * you can look at the 'outputs' tab of your cloudformation stack in aws to see generated outputs.
+
+## Using AWS Cloudwatch to Collect Metrics & Errors from Constructs
+* Take a look a the 'serverless_app_l2_stack.py' file for an example of how to configure cloudwatch metrics generated from your constructs.
+    * In the example for this file, we collect the error metrics generated from the lambda function.
+    * to generate an cloudwatch alarm, please comment out line 36 in the 'serverless_app_l2_stack.py' file and try accessing the lambda url seen in cloudwatch outputs for the corresponding stack. This will error and produce a cloudwatch alarm after a couple minutes.
