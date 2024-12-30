@@ -1,9 +1,11 @@
 from aws_cdk import (
     RemovalPolicy,
     CfnOutput, # needed to be able to get the output from the command 
+    Duration, # Duration is used by cloudwatch to configure periods of time.
     Stack,
     aws_dynamodb as dynamodb,
     aws_lambda as lambda_,
+    aws_cloudwatch as cloudwatch # needed to create CloudWatch metrics and alarms.
 )
 from constructs import Construct
 
@@ -39,6 +41,20 @@ class ServerlessAppL2Stack(Stack):
         # Adding a stack output for the function URL to access it easily
         CfnOutput(self, 'ProductListUrl',
                   value=product_list_url.url)
+        
+        # Configuring an alarm for the Lambda function's errors metric
+        error_metric = product_list_function.metric_errors(
+            label='ProductListFunction Errors',
+            period=Duration.minutes(5),
+            statistic=cloudwatch.Stats.SUM
+        )
+
+        error_metric.create_alarm(self, 'ProductListErrorsAlarm',
+                                  evaluation_periods=1,
+                                  threshold=1,
+                                  comparison_operator=cloudwatch.ComparisonOperator.GREATER_THAN_OR_EQUAL_TO_THRESHOLD,
+                                  treat_missing_data=cloudwatch.TreatMissingData.IGNORE)
+
         
         
                                         
