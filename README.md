@@ -137,6 +137,10 @@ This cdk app creates a VPC with two AZ's, 2 public/private subnets, internet gat
 ```
 **Steps:**
 * Go to the correct project directory (this was initialized using the steps above)
+* Before you can use an L3 construct (aka cdk pattern), you must first install it in your python virtual environment. This means adding the package name into your 'requirements.txt' file. 
+    * you can find this package name in constructhub under the reference documentation for the module you want to use (example package name: 'aws_solutions_constructs.aws_lambda_dynamodb', find the appropriate version at the top of the page next to the package name).
+        * see example of this in 'requirements.txt' of the serverless_app_l3 folder.
+    * make sure to install the package after adding it into requirements.txt by using the command 'pip3 install -r requirements.txt' (if you see an error in this process it's probably because there's an updated version of the package you are trying to install).
 * Go to your constructs file which is usually found under the sub-folder that contains your stack name and the file should be your stack name ending in .py (in this repository it is **aws-cdk-with-python/my_sample_app/my_sample_app/my_sample_app_l3_stack.py**).
 * Before you define a construct, find the aws-cdk-lib module and import it (note how 'aws_ec2 as ec2' is imported in the sample repository, in order to create VPC's and other resources).
 * When you've clicked the link of the resource you want to create, click the appropriate link for the programming language you plan to create the construct with.
