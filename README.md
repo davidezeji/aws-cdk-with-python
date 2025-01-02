@@ -214,6 +214,9 @@ How do aspects work?
 
 ## Testing Your CDK Constructs
 
+```
+Look at the 'test_aspects_and_testing_stack.py' file for examples of unit tests.
+```
 You can write unit tests for your cdk apps by using *fine-grained assertions*:
 * Fine-grained assertions is unit testing the contents of the synthesized CloudFormation template with test assertions.
 * They enable you to test resource counts, expected resource properties, etc.
@@ -224,5 +227,8 @@ To run tests, follow these steps:
 * Go to appropriate directory
 * initiate python virtual environment (`python3 -m venv .venv` & `source .venv/bin/activate`)
 * install pytest from the requirements-dev.txt file: `pip install -r requirements-dev.txt`
+* now you can use the pytest library to write new tests (place your test under the 'tests' folder. This folder gets created when you initialize a new cdk folder as seen in the steps above). Best practice is to create at least one test for each stack. 
+* Write your tests
+* use the command `pytest` on the command line to run the tests
 
 
