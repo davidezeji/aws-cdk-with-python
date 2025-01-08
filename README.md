@@ -9,7 +9,7 @@
 ## How to Initialize a CDK Environmnet in AWS
 * What does it mean to initialize a CDK environment?
     * It means that you are preparing an AWS region in your aws account for cdk deployments by creating necessary resources, like S3 buckets and IAM roles.
-    * The 'cdk bootstrap' command is used to bootstrap a CDK environment (command format: 'cdk bootstrap <AWSACCOUNT#>/awsregion'): `cdk bootstrap 682033486371/us-east-1`    
+    * The 'cdk bootstrap' command is used to bootstrap a CDK environment (command format: 'cdk bootstrap AWSACCOUNT#/awsregion'): `cdk bootstrap 682033486371/us-east-1`    
         * this bootstraps your specified account in us-east-1, you can add on more accounts/regions in linear fashion to this command to bootstrap multiple environments at once, just make sure you have configured your aws cli locally before running this command.
     * Once the bootrap has been completed, go to your aws console and loock at stacks in cloudformation to see your newly created CDKToolkit (name is subject to change). Now you can use CDK in this aws environment.
 
