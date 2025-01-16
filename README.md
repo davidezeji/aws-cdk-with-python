@@ -239,5 +239,5 @@ You can use the Hashicorp took 'cdktf' to convert Terraform configuration files 
 3. Ensure it's installed correctly: `cdktf --version`
 
 Here's an example of how to use it: `cat ./terraform/fgtvm.tf | cdktf convert --provider hashicorp/aws  --language python > imported.py`
-
+*KEEP IN MIND: this enables terraform files to be compatible with cdktf NOT AWS CDK!!!*
 
