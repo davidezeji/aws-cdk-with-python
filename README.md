@@ -229,6 +229,15 @@ To run tests, follow these steps:
 * install pytest from the requirements-dev.txt file: `pip install -r requirements-dev.txt`
 * now you can use the pytest library to write new tests (place your test under the 'tests' folder. This folder gets created when you initialize a new cdk folder as seen in the steps above). Best practice is to create at least one test for each stack. 
 * Write your tests
-* use the command `pytest` on the command line to run the tests
+* use the command `pytest` on the command line to run the tests.
+
+## How To Convert Terraform Files into CDK Files
+
+You can use the Hashicorp took 'cdktf' to convert Terraform configuration files into CDK. Here's how to install it locally:
+1. Install Homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+2. Install cdktf: `brew install cdktf`
+3. Ensure it's installed correctly: `cdktf --version`
+
+Here's an example of how to use it: `cat ./terraform/fgtvm.tf | cdktf convert --provider hashicorp/aws  --language python > imported.py`
 
 
